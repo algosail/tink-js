@@ -1,0 +1,23 @@
+{
+  "name": "@algosail/tink",
+  "version": "0.0.1",
+  "exports": "./mod.ts",
+  "tasks": {
+    "dev": "deno run --watch -A dev.ts"
+  },
+  "fmt": {
+    "semiColons": false,
+    "singleQuote": true
+  },
+  "compilerOptions": {
+    "lib": [
+      "deno.ns",
+      "dom",
+      "es2015"
+    ]
+  },
+  "imports": {
+    "@deno/emit": "jsr:@deno/emit@^0.43.1",
+    "@std/http": "jsr:@std/http@^0.224.5"
+  }
+}

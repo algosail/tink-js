@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+@font-face { font-family: Input; src: url('/fonts/InputMono-Light.ttf'); }
+
+html { font-family: "Input", "JetBrains Mono", monospace; font-size: 12.5px; }
+body { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+main { display: flex; flex-direction: column; gap: 12.5px; align-items: center; padding: 12.5px; }
+
+h1 { margin: 0; font-size: 12.5px; }
+pre { max-width: 80vw; max-height: 80vh; margin: 0; font-family: "Input", "JetBrains Mono", monospace; font-size: 12.5px; line-height: 1.01; }
