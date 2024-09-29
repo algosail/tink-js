@@ -2,7 +2,7 @@ import { t_grid } from './grid.ts'
 import { t_size } from './size.ts'
 import { t_pos } from './pos.ts'
 import { t_print } from './print.ts'
-import { keyEvents } from './keyboard.ts'
+import { htmlKeyboard } from './keyboard.ts'
 import type { Grid } from './grid.ts'
 import type { Size } from './size.ts'
 import type { Pos } from './pos.ts'
@@ -28,7 +28,7 @@ export const t_scene = (
   ...components: Component[]
 ): Scene => {
   const layers: Layer[] = []
-  const keyboard = keyEvents()
+  const keyboard = htmlKeyboard()
   let size: Size = t_size(16, 9)
   let pos: Pos = t_pos(0, 0)
   let border: Border | null = null

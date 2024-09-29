@@ -11,7 +11,7 @@ export const t_print = (
   grid: Grid,
   viewBox: Partial<ViewBox> = {},
   fill: string = ' ',
-) => {
+): string => {
   const v = {
     x: 0,
     y: 0,

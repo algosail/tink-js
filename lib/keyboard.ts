@@ -13,6 +13,11 @@ interface Events {
   press: Record<string, EventFn[]>
 }
 
+interface HTMLKeyboard {
+  add(event: KeyEvent): void
+  clear(): void
+}
+
 export const t_onKeyDown = (key: string, cb: () => void): KeyEvent => {
   return {
     type: 'key_event',
@@ -40,7 +45,7 @@ export const t_onKeyPress = (key: string, cb: () => void): KeyEvent => {
   }
 }
 
-export const keyEvents = () => {
+export const htmlKeyboard = (): HTMLKeyboard => {
   const events: Events = { down: {}, up: {}, press: {} }
 
   const add = ({ event, key, cb }: KeyEvent) => {
