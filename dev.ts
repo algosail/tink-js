@@ -6,15 +6,17 @@ import * as esbuild from 'npm:esbuild@0.23.0'
 const script = async (path: string) => {
   try {
     const url = new URL('./test' + path, import.meta.url)
-    await esbuild.build({
+    const res = await esbuild.build({
       plugins: [...denoPlugins()],
       entryPoints: [url.toString()],
-      outfile: './test/dist/code.esm.js',
-      bundle: true,
+      outfile: '.',
       format: 'esm',
+      bundle: true,
+      treeShaking: true,
+      // minify: true,
+      write: false,
     })
-    const code = await Deno.readTextFile('./test/dist/code.esm.js')
-    return new Response(code, {
+    return new Response(res.outputFiles[0].contents, {
       headers: { 'content-type': 'application/javascript' },
     })
   } catch (error) {

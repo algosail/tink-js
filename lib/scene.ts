@@ -9,6 +9,7 @@ import type { Pos } from './pos.ts'
 import type { Border } from './border.ts'
 import type { Layer } from './layer.ts'
 import type { KeyEvent } from './keyboard.ts'
+import type { FPSInfo } from './loop.ts'
 
 export interface Scene {
   type: 'scene'
@@ -16,7 +17,7 @@ export interface Scene {
   size: Size
   pos: Pos
   grid: Grid
-  update(fpsInterval: number): void
+  update(info: FPSInfo): void
   print(): string
 }
 
@@ -47,10 +48,10 @@ export const t_scene = (
     return grid
   }
 
-  const update = (fpsInterval: number) => {
-    size.update(fpsInterval)
-    pos.update(fpsInterval)
-    for (const it of layers) it.update(fpsInterval)
+  const update = ({ interval }: FPSInfo) => {
+    size.update(interval)
+    pos.update(interval)
+    for (const it of layers) it.update(interval)
   }
 
   const print = () => {

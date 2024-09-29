@@ -4,7 +4,17 @@ export interface Loop {
   start(update: Update): void
 }
 
-export type Update = (fpsInterval: number) => void
+export interface UpdateEvent {
+  type: 'update_event'
+  cb: Update
+}
+
+export interface FPSInfo {
+  value: number
+  interval: number
+}
+
+export type Update = (info: FPSInfo) => void
 
 export const t_loop = (targetFPS: number): Loop => {
   // Time
@@ -35,7 +45,7 @@ export const t_loop = (targetFPS: number): Loop => {
     elapsedPerSecond += timeElapsed
 
     if (totalElapsed / totalFrames >= fpsInterval) {
-      update(fpsInterval)
+      update({ value: currentFPS, interval: fpsInterval })
       totalFrames++
       framesPerSecond++
     }
@@ -59,5 +69,12 @@ export const t_loop = (targetFPS: number): Loop => {
     get fps() {
       return currentFPS
     },
+  }
+}
+
+export const t_onUpdate = (cb: Update): UpdateEvent => {
+  return {
+    type: 'update_event',
+    cb,
   }
 }

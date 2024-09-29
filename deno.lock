@@ -18,6 +18,7 @@
       "jsr:@std/fs@^0.218.2": "jsr:@std/fs@0.218.2",
       "jsr:@std/http@^0.224.5": "jsr:@std/http@0.224.5",
       "jsr:@std/io@^0.218.2": "jsr:@std/io@0.218.2",
+      "jsr:@std/json@^1.0.0": "jsr:@std/json@1.0.0",
       "jsr:@std/jsonc@1.0.0": "jsr:@std/jsonc@1.0.0",
       "jsr:@std/media-types@^1.0.0-rc.1": "jsr:@std/media-types@1.0.2",
       "jsr:@std/net@^0.224.3": "jsr:@std/net@0.224.5",
@@ -114,8 +115,14 @@
           "jsr:@std/bytes@^0.218.2"
         ]
       },
+      "@std/json@1.0.0": {
+        "integrity": "985c1e544918d42e4e84072fc739ac4a19c3a5093292c99742ffcdd03fb6a268"
+      },
       "@std/jsonc@1.0.0": {
-        "integrity": "835da212e586f3ef94ab25e8f0e8a7711a86fddbee95ad40c34d6b3d74da1a1b"
+        "integrity": "835da212e586f3ef94ab25e8f0e8a7711a86fddbee95ad40c34d6b3d74da1a1b",
+        "dependencies": [
+          "jsr:@std/json@^1.0.0"
+        ]
       },
       "@std/media-types@1.0.1": {
         "integrity": "f2ddc3497be0bd87ac0c9b9b26bb454f76bdc45e1b9a12146af47fab3ba2828c"

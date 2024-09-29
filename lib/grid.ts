@@ -5,6 +5,7 @@ export interface Grid {
   width: number
   height: number
   list(): Cell[]
+  fill(background?: string): void
   add(grid: Grid, x: number, y: number): void
 }
 
@@ -38,6 +39,15 @@ export const t_grid = (data: Cell[], width: number, height: number): Grid => {
     }
   }
 
+  const fill = (background = ' ') => {
+    for (let i = 0; i < width * height; i++) {
+      if (cells.has(i)) continue
+      const x = i % width
+      const y = Math.floor(i / width)
+      cells.set(i, [background, x, y])
+    }
+  }
+
   return {
     type: 'grid',
     get width(): number {
@@ -48,5 +58,6 @@ export const t_grid = (data: Cell[], width: number, height: number): Grid => {
     },
     list,
     add,
+    fill,
   }
 }

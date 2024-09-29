@@ -10,11 +10,10 @@
     "singleQuote": true
   },
   "compilerOptions": {
-    "lib": [
-      "deno.ns",
-      "dom",
-      "es2015"
-    ]
+    "lib": ["deno.ns", "dom", "es2015"]
+  },
+  "publish": {
+    "exclude": ["test", "dev.ts"]
   },
   "imports": {
     "@deno/emit": "jsr:@deno/emit@^0.43.1",
