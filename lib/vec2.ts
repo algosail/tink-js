@@ -1,10 +1,12 @@
+import type { FPSInfo } from './loop.ts'
+
 interface Vec2 {
   type: 'vec2'
   x: number
   y: number
   change(x: number, y: number): void
   changeTo(x: number, y: number, time?: number): void
-  update(fpsInterval: number): void
+  update(fpsInfo: FPSInfo): void
 }
 
 interface Param {
@@ -56,9 +58,9 @@ export const t_vec2 = (x: number, y: number): Vec2 => {
     if (target && target[vec] === current[vec]) vel[vec] = 0
   }
 
-  const update = (fpsInterval: number) => {
-    updateVec('x', fpsInterval)
-    updateVec('y', fpsInterval)
+  const update = ({ interval }: FPSInfo) => {
+    updateVec('x', interval)
+    updateVec('y', interval)
   }
 
   return {

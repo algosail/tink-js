@@ -4,13 +4,14 @@ import { t_print } from './print.ts'
 import type { Size } from './size.ts'
 import type { Grid } from './grid.ts'
 import type { Entity } from './entity.ts'
+import type { FPSInfo } from './loop.ts'
 
 export interface Layer {
   type: 'layer'
   level: number
   grid: Grid
   setLevel(level: number): void
-  update(fpsInterval: number): void
+  update(fpsInfo: FPSInfo): void
   print(): string
 }
 
@@ -36,9 +37,9 @@ export const t_layer = (...components: Component[]): Layer => {
     return grid
   }
 
-  const update = (fpsInterval: number) => {
+  const update = (fpsInfo: FPSInfo) => {
     for (const it of Object.values(entities)) {
-      it.update(fpsInterval)
+      it.update(fpsInfo)
     }
   }
 

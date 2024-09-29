@@ -1,4 +1,5 @@
 import { t_vec2 } from './vec2.ts'
+import type { FPSInfo } from './loop.ts'
 
 export interface Pos {
   type: 'pos'
@@ -6,7 +7,7 @@ export interface Pos {
   y: number
   move(x: number, y: number): void
   moveTo(x: number, y: number, time?: number): void
-  update(fpsInterval: number): void
+  update(fpsInfo: FPSInfo): void
 }
 
 export const t_pos = (x: number, y: number): Pos => {

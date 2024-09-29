@@ -48,10 +48,10 @@ export const t_scene = (
     return grid
   }
 
-  const update = ({ interval }: FPSInfo) => {
-    size.update(interval)
-    pos.update(interval)
-    for (const it of layers) it.update(interval)
+  const update = (fpsInfo: FPSInfo) => {
+    size.update(fpsInfo)
+    pos.update(fpsInfo)
+    for (const it of layers) it.update(fpsInfo)
   }
 
   const print = () => {

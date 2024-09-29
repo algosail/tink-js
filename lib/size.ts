@@ -1,4 +1,5 @@
 import { t_vec2 } from './vec2.ts'
+import type { FPSInfo } from './loop.ts'
 
 export interface Size {
   type: 'size'
@@ -6,7 +7,7 @@ export interface Size {
   height: number
   resize(width: number, height: number): void
   resizeTo(width: number, height: number, time?: number): void
-  update(fpsInterval: number): void
+  update(fpsInfo: FPSInfo): void
 }
 
 export const t_size = (width: number, height: number): Size => {

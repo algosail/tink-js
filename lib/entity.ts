@@ -7,6 +7,7 @@ import type { Pos } from './pos.ts'
 import type { State } from './state.ts'
 import type { Anim } from './anim.ts'
 import type { Sprite } from './sprite.ts'
+import type { FPSInfo } from './loop.ts'
 
 export interface Entity {
   type: 'entity'
@@ -14,7 +15,7 @@ export interface Entity {
   pos: Pos
   grid: Grid
   startAnim(name: string): void
-  update(fpsInterval: number): void
+  update(fpsInfo: FPSInfo): void
   print(): string
 }
 
@@ -52,10 +53,10 @@ export const t_entity = (
     return animations[currentAnim]
   }
 
-  const update = (fpsInterval: number) => {
+  const update = (fpsInfo: FPSInfo) => {
     const view = getCurrentView()
-    if (view.type === 'anim') view.update(fpsInterval)
-    pos.update(fpsInterval)
+    if (view.type === 'anim') view.update(fpsInfo)
+    pos.update(fpsInfo)
   }
 
   const getCurrentGrid = () => getCurrentView().grid
